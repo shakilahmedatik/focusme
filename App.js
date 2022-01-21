@@ -1,10 +1,17 @@
+import { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Focus } from './src/features/focus/Focus'
 
 export default function App() {
+  const [focusSubject, setFocusSubject] = useState(null)
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>OMG! I am in ANDROID now</Text>
+      {focusSubject ? (
+        <Text style={styles.heading}>OMG! I am in ANDROID now</Text>
+      ) : (
+        <Focus />
+      )}
       <StatusBar style='auto' />
     </View>
   )
