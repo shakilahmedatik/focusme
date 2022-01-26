@@ -13,7 +13,7 @@ export const RoundedButton = ({
 const styles = style =>
   StyleSheet.create({
     radius: {
-      borderRadius: size / 2,
+      borderRadius: size / 3,
       width: size,
       height: size,
       alignItems: 'center',
