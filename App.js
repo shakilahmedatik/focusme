@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, SafeAreaView, Text } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Text, Platform } from 'react-native'
 import { Focus } from './src/features/focus/Focus'
-import { RoundedButton } from './src/components/RoundedButton'
+import { Timer } from './src/features/timer/Timer'
 import { colors } from './src/utils/colors'
+import { paddingSizes } from './src/utils/sizes'
 export default function App() {
-  const [focusSubject, setFocusSubject] = useState(null)
+  const [focusSubject, setFocusSubject] = useState('Coding')
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {focusSubject ? (
-        <Text style={styles.heading}>{focusSubject}</Text>
+        <Timer focusSubject={focusSubject} />
       ) : (
         <Focus addSubject={setFocusSubject} />
       )}
+
       <StatusBar style='auto' />
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -22,5 +24,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.darkMaroon,
+    paddingTop: Platform.OS == 'android' ? paddingSizes.xl : paddingSizes.xxl,
   },
 })
