@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View, SafeAreaView, Text } from 'react-native'
 import { Focus } from './src/features/focus/Focus'
 import { RoundedButton } from './src/components/RoundedButton'
+import { colors } from './src/utils/colors'
 export default function App() {
   const [focusSubject, setFocusSubject] = useState(null)
   return (
@@ -20,6 +21,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#570530',
+    backgroundColor: colors.darkMaroon,
   },
 })
