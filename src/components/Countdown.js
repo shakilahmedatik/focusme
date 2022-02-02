@@ -4,7 +4,7 @@ import { colors } from '../utils/colors'
 import { fontSizes, paddingSizes } from '../utils/sizes'
 const minutesToMillis = min => min * 1000 * 60
 
-export const Countdown = ({ minutes = 20, isPaused = true }) => {
+export const Countdown = ({ minutes = 1, isPaused = true, onProgress }) => {
   const interval = React.useRef(null)
   const countDown = () => {
     setMillis(time => {
@@ -14,12 +14,18 @@ export const Countdown = ({ minutes = 20, isPaused = true }) => {
       }
       const timeLeft = time - 1000
       //   Report the progress
+      onProgress(timeLeft / minutesToMillis(minutes))
       return timeLeft
     })
   }
 
   useEffect(() => {
+    console.log(millis)
+  }, [millis])
+
+  useEffect(() => {
     if (isPaused) {
+      if (interval.current) clearInterval(interval.current)
       return
     }
     interval.current = setInterval(countDown, 1000)
