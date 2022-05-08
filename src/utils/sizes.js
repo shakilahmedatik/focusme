@@ -23,4 +23,3 @@ export const spacing = {
   xxxl: 80,
 }
 
-
