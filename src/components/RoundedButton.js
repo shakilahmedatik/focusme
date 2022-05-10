@@ -34,4 +34,3 @@ const styles = size =>
       fontSize: size / 3,
     },
   })
-
