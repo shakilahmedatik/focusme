@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS == 'android' ? paddingSizes.xl : paddingSizes.xxl,
   },
 })
+
+
