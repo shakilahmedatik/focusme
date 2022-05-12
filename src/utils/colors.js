@@ -3,4 +3,3 @@ export const colors = {
   darkMaroon: '#570530',
 }
 
-
